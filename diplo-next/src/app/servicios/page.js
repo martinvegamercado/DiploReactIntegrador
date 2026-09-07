@@ -4,7 +4,7 @@ export const metadata = {
   description: "Soluciones integrales de software para llevar tu empresa al siguiente nivel.",
 };
 
-export default function Page() {
+export default function Servicios() {
   return (
     <div className="page-content">
       <section className="services">
