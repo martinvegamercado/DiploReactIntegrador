@@ -1,0 +1,2 @@
+mysqld.exe --console --port=3307 inicia el servidor
+mysqladmin.exe -h 127.0.0.1 -P 3307 -u root -p shutdown lo tumba
