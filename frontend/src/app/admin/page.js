@@ -1,0 +1,4 @@
+"use client";
+import { useEffect,useState } from 'react';
+import { api } from '@/lib/api';
+export default function Dashboard(){const [resumen,setResumen]=useState(null),[error,setError]=useState('');useEffect(()=>{api('/dashboard/resumen').then(setResumen).catch(e=>setError(e.message))},[]);return <section><h1>Dashboard</h1>{error&&<p role="alert">{error}</p>}{!resumen&&!error&&<p>Cargando datos…</p>}<div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(175px,1fr))',gap:16,marginTop:24}}>{resumen&&Object.entries({Usuarios:resumen.usuarios,Servicios:resumen.servicios,Productos:resumen.productos,Novedades:resumen.novedades,'Contactos nuevos':resumen.contactosNuevos}).map(([titulo,valor])=><article key={titulo} style={{border:'1px solid #8885',borderRadius:12,padding:20}}><h2 style={{fontSize:16}}>{titulo}</h2><strong style={{fontSize:36}}>{valor}</strong></article>)}</div></section>}
